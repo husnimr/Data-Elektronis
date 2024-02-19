@@ -1,0 +1,32 @@
+{
+    "id": "762B5CFF",
+    "path": "D:/PDE/UTS PDE/UTS.Rmd",
+    "project_path": "UTS.Rmd",
+    "type": "r_markdown",
+    "hash": "516837331",
+    "contents": "",
+    "dirty": false,
+    "created": 1678844749116.0,
+    "source_on_save": false,
+    "relative_order": 3,
+    "properties": {
+        "tempName": "Untitled2",
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "0,0",
+        "scrollLine": "62",
+        "rmdVisualMode": "true",
+        "rmdVisualWrapConfigured": "true",
+        "docOutlineVisible": "1",
+        "rmdVisualCollapsedChunks": "",
+        "rmdVisualModeLocation": "2:0"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1678847982,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1678847982457,
+    "read_only": false,
+    "read_only_alternatives": []
+}

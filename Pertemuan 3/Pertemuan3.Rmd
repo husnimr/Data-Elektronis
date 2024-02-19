@@ -1,0 +1,26 @@
+---
+title: "Pertemuan3"
+author: "Husni Mubarok Ramadhan"
+date: "2023-02-10"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+## Tugas Lab: 1
+
+```{r, comment=NA}
+getOption("defaultPackages") #mengembalikan nilai dari opsi, yaitu daftar paket yang dipasang secara default setiap kali R dimulai
+library() #untuk memuat paket
+R.version #menyimpan informasi seperti versi, tanggal rilis, dan informasi kompilasi
+sessionInfo() #menampilkan informasi tentang konfigurasi saat ini
+
+
+getwd() #mengambil working directory (direktori kerja) saat ini. Working directory adalah direktori di mana R berada saat ini, dan ini menentukan lokasi file dan direktori yang akan dibuka atau dicari oleh R
+ls() #fungsi yang digunakan dalam lingkungan pemrograman R untuk menampilkan daftar nama objek yang ada
+rm() #fungsi yang digunakan dalam lingkungan pemrograman R untuk menampilkan daftar nama objek yang ada
+rm(list=ls()) #untuk menghapus semua objek yang ada dalam memori R saat ini
+save.image() #menyimpan memori R saat ini dalam sebuah file yang bisa dibuka kembali nanti
+
+
+```

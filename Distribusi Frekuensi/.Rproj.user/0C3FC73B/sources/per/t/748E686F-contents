@@ -1,0 +1,67 @@
+---
+title: "Analisa state.x77"
+author: "Husni Mubarok Ramadhan"
+date: "2023-02-17"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+
+{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+
+# Analisa Dataset state.x77
+
+## Jalankan RStudio dan di R Console atau Code Editor. Ketik dan jalankan perintah berikut.
+
+{r, comment=NA}
+# Memanggil objek state.x77
+state.x77
+
+
+
+*Tambahkan kode seperti dibawah ini.*
+
+{r, comment=NA}
+state.x77 <- data.frame(state.x77)
+str(state.x77) 
+# Kode di atas mengubah objek state.x77 menjadi data.frame dan kemudian menampilkan struktur data.frame tersebut dengan method string.
+
+
+*Tambahkan kode seperti dibawah ini.*
+
+{r, comment=NA}
+attach(state.x77)
+Income
+quantile(Income)
+quantile(Income, c(0.5, 0.25, 0.50))
+
+
+### Penjelasan
+- attach()\newline
+Kode di atas melakukan attachment objek state.x77, sehingga variabel-variabel di dalamnya dapat dipanggil langsung. 
+
+- quantile()\newline
+Kemudian dilakukan perhitungan quantile untuk variabel Income. Fungsi quantile() digunakan untuk menghitung persentil dari suatu vektor numerik. 
+
+- quantile(variabel, c(0.5, 0.25, 0.50))\newline
+Pada kode di atas, dilakukan perhitungan persentil ke-0.25, ke-0.5 (median), dan ke-0.75 dari vektor Income.
+
+*Tambahkan kode seperti dibawah ini.*
+
+
+{r, comment=NA}
+# baris pertama
+cor(state.x77)[,2:5]
+# baris kedua
+cor(state.x77[,2:5])
+
+
+#### Penjelasan :
+Kode di atas melakukan perhitungan korelasi antara variabel-variabel di dalam state.x77. 
+
+- Pada baris pertama, seluruh variabel digunakan sebagai input, dan kemudian hanya kolom ke-2 sampai ke-5 yang ditampilkan. 
+
+- Pada baris kedua, hanya kolom ke-2 sampai ke-5 yang digunakan sebagai input. Fungsi cor() digunakan untuk menghitung korelasi antar variabel. Hasilnya adalah matriks korelasi.

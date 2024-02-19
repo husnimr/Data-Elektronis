@@ -1,0 +1,26 @@
+---
+title: "DataDiagram"
+author: "Husni Mubarok Ramadhan"
+date: "2023-09-06"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Diagram Dahan daun
+
+```{r, comment=NA}
+library(stemgraphic)
+# Contoh kode R untuk membuat diagram batang dan daun
+# Data contoh
+data <- c(23, 45, 67, 89, 34, 56, 78, 91, 12, 44, 67, 89, 24, 57, 79, 92, 33, 46, 68, 93)
+
+# Membuat diagram batang dan daun
+stem(data)
+
+```
+
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

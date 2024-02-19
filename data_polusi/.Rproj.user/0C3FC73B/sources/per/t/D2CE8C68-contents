@@ -1,0 +1,97 @@
+---
+title: "TugasLab"
+author: "Husni Mubarok Ramadhan"
+date: "2023-02-10"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+## Tugas Lab: 1
+
+```{r, comment=NA}
+getOption("defaultPackages") #mengembalikan nilai dari opsi, yaitu daftar paket yang dipasang secara default setiap kali R dimulai
+library() #untuk memuat paket
+R.version #menyimpan informasi seperti versi, tanggal rilis, dan informasi kompilasi
+sessionInfo() #menampilkan informasi tentang konfigurasi saat ini
+
+
+getwd() #mengambil working directory (direktori kerja) saat ini. Working directory adalah direktori di mana R berada saat ini, dan ini menentukan lokasi file dan direktori yang akan dibuka atau dicari oleh R
+ls() #fungsi yang digunakan dalam lingkungan pemrograman R untuk menampilkan daftar nama objek yang ada
+rm() #fungsi yang digunakan dalam lingkungan pemrograman R untuk menampilkan daftar nama objek yang ada
+rm(list=ls()) #untuk menghapus semua objek yang ada dalam memori R saat ini
+save.image() #menyimpan memori R saat ini dalam sebuah file yang bisa dibuka kembali nanti
+
+
+```
+
+## Tugas Lab: 2
+
+```{r, comment=NA}
+x <- c(1,2,5,9,11)
+y <- c(2,5,1,0,23)
+intersect(x,y) #menghasilkan nilai yang sama di kedua vektor x dan y. Hasilnya adalah c(1, 2, 5).
+setdiff(x,y) #menghasilkan nilai yang ada di vektor x tapi tidak ada di vektor y. Hasilnya adalah c(9, 11).
+setdiff(y,x) #menghasilkan nilai yang ada di vektor y tapi tidak ada di vektor x. Hasilnya adalah c(0, 23).
+union(x,y) #menghasilkan gabungan dari semua nilai di kedua vektor x dan y tanpa duplikat. Hasilnya adalah c(1, 2, 5, 9, 11, 0, 23)
+c(x,y) #menghasilkan gabungan dari semua nilai di kedua vektor x dan y. Hasilnya adalah c(1, 2, 5, 9, 11, 2, 5, 1, 0, 23).
+
+100.1 + 234.9 + 12.01 #menghasilkan 347.
+sqrt(256) #menghasilkan 16.
+cumsum(c(2,3,4,5,6)) #menghasilkan vektor kumulatif dari input, yaitu c(2, 5, 9, 14, 20).
+cumsum(rev(c(2,3,4,5,6))) #menghasilkan vektor kumulatif dari input yang dibalik, yaitu c(20, 17, 13, 8, 2).
+
+rainfall <- c(0.1, 0.6, 33.8, 1.9, 0.3, 0.0, 9.6, 0.1, 4.3, 33.7, 0.3, 0.0, 0.1) #menghitung nilai rata-rata dari vektor rainfall. Hasilnya adalah 8.061538461538462
+mean(rainfall) #menghitung standar deviasi dari vektor rainfall. Hasilnya adalah 13.68803680368037.
+sd(rainfall) #menghitung standar deviasi dari vektor rainfall. Hasilnya adalah 13.68803680368037
+cumsum(rainfall) #menghitung vektor kumulatif dari vektor rainfall. Hasilnya adalah c(0.1, 0.7, 34.5, 36.4, 36.7, 36.7, 46.3, 46.4, 50.7, 84.4, 84.7, 84.7, 84.8).
+which.max(rainfall) #mencari indeks dari nilai maksimum dalam vektor rainfall. Hasilnya adalah 10, yang berarti nilai maksimum pada vektor rainfall ada pada posisi ke-10
+
+```
+
+## Tugas Lab: 3
+
+
+#### 1. Gambar dan interpretasikan dengan menggunakan dot diagram dan histogram untuk data tersebut di atas.
+```{r, comment=NA}
+# dotchart
+data <- c(4.2, 3.3, 3.8, 3.0, 2.8, 4.8, 4.7, 3.6, 5.0, 4.3, 2.8, 3.8, 4.8, 2.0, 5.0, 4.7, 3.6, 3.1,5.2, 4.8)
+dotchart(data)
+
+# histogram
+hist(data)
+```
+
+#### 2. Hitung dan interpretasikan nilai rata-rata, median dan modus data diatas data <- c(4.2, 3.3, 3.8, 3.0, 2.8, 4.8, 4.7, 3.6, 5.0, 4.3, 2.8, 3.8, 4.8, 2.0, 5.0, 4.7, 3.6, 3.1, 5.2, 4.8)
+```{r, comment=NA}
+# menghitung nilai rata-rata
+mean(data)
+# menghitung nilai median
+median(data)
+# menghitung nilai modus
+mode(data)
+```
+
+
+#### 3. Hitung dan interpretasikan range, varians, dan standar deviasi data diatas.
+
+```{r, comment=NA}
+data <- c(4.2, 3.3, 3.8, 3.0, 2.8, 4.8, 4.7, 3.6, 5.0, 4.3, 2.8, 3.8, 4.8, 2.0, 5.0, 4.7, 3.6, 3.1, 5.2, 4.8)
+# menghitung range
+range(data)
+# menghitung varians
+var(data)
+# menghitung standar deviasi
+sd(data)
+```
+
+#### 4. Jika setiap observasi pada soal no. 1 di atas dikurangi dengan 1,kemudian lakukan penghitungan ulang untuk soal no. 2 dan no. 3.
+```{r, comment=NA}
+
+```
+
+#### 5. Seandainya Anda memilih sembarang angka, apakah akan muncul pengaruh yang sama?
+```{r, comment=NA}
+
+```
+

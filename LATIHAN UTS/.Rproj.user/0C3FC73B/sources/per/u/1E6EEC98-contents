@@ -1,0 +1,7 @@
+install.packages("devtools")
+require(devtools)
+install_github("MichelNivard/gptstudio", force = TRUE)
+Sys.setenv(OPENAI_API_KEY = "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")
+
+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
+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

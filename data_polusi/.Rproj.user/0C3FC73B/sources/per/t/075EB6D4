@@ -1,0 +1,32 @@
+{
+    "id": "075EB6D4",
+    "path": "D:/PDE/data_polusi/DataDiagram.rmd",
+    "project_path": "DataDiagram.rmd",
+    "type": "r_markdown",
+    "hash": "101345863",
+    "contents": "",
+    "dirty": false,
+    "created": 1694021075430.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "tempName": "Untitled1",
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "17,55",
+        "scrollLine": "7",
+        "rmdVisualMode": "false",
+        "rmdVisualWrapConfigured": "true",
+        "docOutlineVisible": "1",
+        "rmdVisualCollapsedChunks": "",
+        "rmdVisualModeLocation": "678:306"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1694030587,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1694030587478,
+    "read_only": false,
+    "read_only_alternatives": []
+}

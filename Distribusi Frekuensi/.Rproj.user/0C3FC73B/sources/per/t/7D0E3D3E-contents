@@ -1,0 +1,128 @@
+---
+title: "Analisa Dataset state.x77"
+author: "Husni Mubarok Ramadhan"
+date: "2023-02-17"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Analisa Dataset state.x77
+
+## Jalankan RStudio dan di R Console atau Code Editor. Ketik dan jalankan perintah berikut.
+
+```{r, comment=NA}
+# Memanggil objek state.x77
+state.x77
+
+```
+
+**Tambahkan kode seperti dibawah ini.**
+
+```{r, comment=NA}
+state.x77 <- data.frame(state.x77)
+str(state.x77) 
+# Kode di atas mengubah objek state.x77 menjadi data.frame dan kemudian menampilkan struktur data.frame tersebut dengan method string.
+```
+
+**Tambahkan kode seperti dibawah ini.**
+
+```{r, comment=NA}
+attach(state.x77)
+Income
+quantile(Income)
+quantile(Income, c(0.5, 0.25, 0.50))
+```
+
+### Penjelasan
+- attach()\newline
+Kode di atas melakukan attachment objek state.x77, sehingga variabel-variabel di dalamnya dapat dipanggil langsung. 
+
+- quantile()\newline
+Kemudian dilakukan perhitungan quantile untuk variabel Income. Fungsi quantile() digunakan untuk menghitung persentil dari suatu vektor numerik. 
+
+- quantile(variabel, c(0.5, 0.25, 0.50))\newline
+Pada kode di atas, dilakukan perhitungan persentil ke-0.25, ke-0.5 (median), dan ke-0.75 dari vektor Income.
+
+**Tambahkan kode seperti dibawah ini.**
+
+
+```{r, comment=NA}
+# baris pertama
+cor(state.x77)[,2:5]
+# baris kedua
+cor(state.x77[,2:5])
+```
+
+#### Penjelasan :
+Kode di atas melakukan perhitungan korelasi antara variabel-variabel di dalam state.x77. 
+
+- Pada baris pertama, seluruh variabel digunakan sebagai input, dan kemudian hanya kolom ke-2 sampai ke-5 yang ditampilkan. 
+
+- Pada baris kedua, hanya kolom ke-2 sampai ke-5 yang digunakan sebagai input. Fungsi cor() digunakan untuk menghitung korelasi antar variabel. Hasilnya adalah matriks korelasi.
+
+
+**Tambahkan kode seperti dibawah ini.**
+**kode pertama**
+
+```{r, comment=NA}
+grupIncome <- cut( Income, breaks=c(0,1000,3500,6500), include.lowest=T, dig.lab=10)
+grupIncome
+```
+#### Penjelasan :
+- Fungsi cut()\newline
+  digunakan untuk memotong variabel numerik Income menjadi beberapa kelompok diskrit berdasarkan nilai-nilai batas yang ditentukan dalam vektor breaks.
+  
+- Dalam contoh di atas, data Income dibagi menjadi tiga kelompok, yaitu: kelompok 1 (0-1000), kelompok 2 (1000-3500), dan kelompok 3 (3500-6500).
+
+- Argumen include.lowest=T\newline
+digunakan untuk menyertakan nilai terendah (0) sebagai batas bawah kelompok pertama.
+
+- Argumen dig.lab=10\newline
+digunakan untuk menentukan jumlah digit yang digunakan untuk mencetak label kelompok. Dalam hal ini, 10 digit digunakan untuk mencetak label kelompok.
+
+
+**kode kedua**
+
+```{r, comment=NA}
+grupIncome2 <- cut( Income, breaks=c(0,4000,4500, Inf), include.lowest=T, dig.lab=10)
+grupIncome2
+```
+
+#### Penjelasan :
+
+- Kode di atas hampir sama dengan kode sebelumnya, hanya beda dalam nilai-nilai batas kelompok yang ditentukan dalam vektor breaks.
+
+- Dalam contoh ini, data Income dibagi menjadi tiga kelompok, yaitu: kelompok 1 (0-4000), kelompok 2 (4000-4500), dan kelompok 3 (4500 ke atas atau tidak terbatas).
+
+- Argumen Inf digunakan untuk menunjukkan bahwa tidak ada nilai batas atas untuk kelompok terakhir.
+
+- Argumen dig.lab=10 digunakan untuk menentukan jumlah digit yang digunakan untuk mencetak label kelompok.
+
+Hasil dari kedua kode di atas adalah vektor dengan label-label kelompok sesuai dengan pembagian yang telah ditentukan. Vektor ini dapat digunakan untuk analisis dan visualisasi data dengan menggunakan metode yang membutuhkan variabel diskrit, seperti analisis tabel silang atau diagram batang.
+
+# Tugas Membuat BarPlot dari data diatas
+```{r, comment=NA}
+# bikin label terlebih dahulu dari data diatas
+labelGrupIncome2 <- cut( Income, breaks=c(0,4000,4500, Inf), 
+                         labels = c("0-4000", "4500-4500", "4500-tak terhingga"), 
+                         include.lowest=T, dig.lab=10)
+
+# Membuat barplot
+barplot(table(labelGrupIncome2), 
+        col=c("mistyrose", "lightcyan", "lavender"), 
+        main="Frekuensi Kelompok Income", xlab="Kelompok Income", ylab="Frekuensi")
+
+```
+
+#### Penjelasan :
+- table(labelGrupIncome2) menghitung frekuensi data dalam setiap kelompok pada vektor labelGrupIncome2 dan menghasilkan sebuah tabel.
+col digunakan untuk menentukan warna pada setiap bar pada diagram batang. Di sini, kita menggunakan warna mistyrose untuk kelompok pertama, lightcyan untuk kelompok kedua, dan lavender untuk kelompok ketiga.
+main digunakan untuk memberikan judul pada diagram batang.
+xlab digunakan untuk memberikan label pada sumbu x (horizontal).
+ylab digunakan untuk memberikan label pada sumbu y (vertikal).
+

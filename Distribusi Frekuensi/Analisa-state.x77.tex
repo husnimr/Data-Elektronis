@@ -1,0 +1,135 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Analisa state.x77},
+  pdfauthor={Husni Mubarok Ramadhan},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Analisa state.x77}
+\author{Husni Mubarok Ramadhan}
+\date{2023-02-17}
+
+\begin{document}
+\maketitle
+
+\{r setup, include=FALSE\} knitr::opts\_chunk\$set(echo = TRUE)
+
+\hypertarget{analisa-dataset-state.x77}{%
+\section{Analisa Dataset state.x77}\label{analisa-dataset-state.x77}}
+
+\hypertarget{jalankan-rstudio-dan-di-r-console-atau-code-editor.-ketik-dan-jalankan-perintah-berikut.}{%
+\subsection{Jalankan RStudio dan di R Console atau Code Editor. Ketik
+dan jalankan perintah
+berikut.}\label{jalankan-rstudio-dan-di-r-console-atau-code-editor.-ketik-dan-jalankan-perintah-berikut.}}
+
+\{r, comment=NA\} \# Memanggil objek state.x77 state.x77
+
+\emph{Tambahkan kode seperti dibawah ini.}
+
+\{r, comment=NA\} state.x77 \textless- data.frame(state.x77)
+str(state.x77) \# Kode di atas mengubah objek state.x77 menjadi
+data.frame dan kemudian menampilkan struktur data.frame tersebut dengan
+method string.
+
+\emph{Tambahkan kode seperti dibawah ini.}
+
+\{r, comment=NA\} attach(state.x77) Income quantile(Income)
+quantile(Income, c(0.5, 0.25, 0.50))
+
+\hypertarget{penjelasan}{%
+\subsubsection{Penjelasan}\label{penjelasan}}
+
+\begin{itemize}
+\item
+  attach()\newline Kode di atas melakukan attachment objek state.x77,
+  sehingga variabel-variabel di dalamnya dapat dipanggil langsung.
+\item
+  quantile()\newline Kemudian dilakukan perhitungan quantile untuk
+  variabel Income. Fungsi quantile() digunakan untuk menghitung
+  persentil dari suatu vektor numerik.
+\item
+  quantile(variabel, c(0.5, 0.25, 0.50))\newline Pada kode di atas,
+  dilakukan perhitungan persentil ke-0.25, ke-0.5 (median), dan ke-0.75
+  dari vektor Income.
+\end{itemize}
+
+\emph{Tambahkan kode seperti dibawah ini.}
+
+\{r, comment=NA\} \# baris pertama cor(state.x77){[},2:5{]} \# baris
+kedua cor(state.x77{[},2:5{]})
+
+\hypertarget{penjelasan-1}{%
+\paragraph{Penjelasan :}\label{penjelasan-1}}
+
+Kode di atas melakukan perhitungan korelasi antara variabel-variabel di
+dalam state.x77.
+
+\begin{itemize}
+\item
+  Pada baris pertama, seluruh variabel digunakan sebagai input, dan
+  kemudian hanya kolom ke-2 sampai ke-5 yang ditampilkan.
+\item
+  Pada baris kedua, hanya kolom ke-2 sampai ke-5 yang digunakan sebagai
+  input. Fungsi cor() digunakan untuk menghitung korelasi antar
+  variabel. Hasilnya adalah matriks korelasi.
+\end{itemize}
+
+\end{document}

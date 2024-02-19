@@ -1,0 +1,181 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Pertemuan 6},
+  pdfauthor={Husni Mubarok Ramadhan},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Pertemuan 6}
+\author{Husni Mubarok Ramadhan}
+\date{2023-03-03}
+
+\begin{document}
+\maketitle
+
+\hypertarget{statistik-deskripsi-dengan-r}{%
+\subsubsection{\texorpdfstring{\textbf{2~ Statistik deskripsi dengan
+R}}{2~ Statistik deskripsi dengan R}}\label{statistik-deskripsi-dengan-r}}
+
+Sebelum memulai dengan konsep dasar analisis data, seseorang harus
+menyadari berbagai jenis data dan cara untuk mengatur data dalam file
+komputer.
+
+\hypertarget{beberapa-istilah-dasar}{%
+\paragraph{\texorpdfstring{\textbf{2.1~ Beberapa istilah
+dasar}}{2.1~ Beberapa istilah dasar}}\label{beberapa-istilah-dasar}}
+
+\textbf{Populasi} -- agregat subjek (makhluk, benda, kasus, dan
+sebagainya). Untuk studi tertentu, \emph{populasi target} harus
+ditentukan: pada subjek mana kita akan menggeneralisasi atau menggunakan
+hasilnya?
+
+\textbf{Sampel} -- kumpulan subjek \emph{dalam penelitian}. Secara umum,
+sampel harus representatif untuk populasi target.
+
+\textbf{Observasi} -- unit studi atau \emph{subjek} atau individu.
+Seringkali manusia, terkadang juga hewan, tumbuhan atau apa pun.
+
+\textbf{Variabel} -- kualitas atau kuantitas, diukur atau dicatat untuk
+setiap subjek dalam sampel (usia, jenis kelamin, tinggi badan, berat
+badan, tingkat merokok, dll.).
+
+\textbf{Dataset} -- seperangkat nilai dari semua variabel yang menarik
+bagi semua individu dalam penelitian ini. Hasil numerik yang diperoleh
+dari dataset akan digunakan untuk menarik kesimpulan tentang populasi
+target.
+
+\hypertarget{organisasi-data}{%
+\paragraph{\texorpdfstring{\textbf{2.2 Organisasi
+data}}{2.2 Organisasi data}}\label{organisasi-data}}
+
+Himpunan data sebagian besar diatur (dan disimpan sebagai file komputer)
+dalam bentuk \emph{matriks data}.
+
+Matriks data yang mewakili jenis kelamin (1-laki-laki; 0-perempuan),
+usia, tidak. anak-anak, berat (kg), dan tinggi (cm) 7 orang:
+
+\begin{longtable}[]{@{}llllll@{}}
+\toprule()
+No & Jenis Kelamin & Umur & Nomor anak & Berat & Tinggi \\
+\midrule()
+\endhead
+1 & 0 & 57 & 1 & 65 & 158 \\
+2 & 1 & 70 & 3 & 100 & 175 \\
+3 & 0 & 45 & 0 & 71 & 162 \\
+4 & 0 & 38 & 2 & 58 & 164 \\
+5 & 0 & 25 & 1 & 81 & 170 \\
+6 & 1 & 50 & 4 & 68 & 172 \\
+7 & 1 & 61 & 0 & 85 & 179 \\
+\bottomrule()
+\end{longtable}
+
+Setiap baris matriks semacam itu mewakili satu pengamatan. Semua baris
+memiliki panjang yang sama: data yang sama telah direkam untuk semua
+individu. Setiap kolom mewakili satu variabel. Misalnya, Berat adalah
+nama variabel, yang mewakili berat badan (dalam kg) seseorang.
+
+\hypertarget{jenis-data}{%
+\paragraph{\texorpdfstring{\textbf{2.3 Jenis
+data}}{2.3 Jenis data}}\label{jenis-data}}
+
+\hypertarget{data-numerik}{%
+\paragraph{\texorpdfstring{• \textbf{Data
+numerik}}{• Data numerik}}\label{data-numerik}}
+
+-Data diskrit -- variabel hanya dapat mengambil nilai bilangan bulat (0,
+1, 2 dll.)
+
+Contoh: jumlah anak, jumlah teman
+
+-Data kontinu -- setiap nilai bernomor nyata (seringkali dalam rentang
+tertentu) adalah contoh yang mungkin: berat badan, usia
+
+• \textbf{Data kualitatif (non-numerik, kategoris)}
+
+-Data nominal: kategori tidak berurutan contoh: golongan darah, warna
+mata
+
+-Data ordinal atau terurut:ord ered kategori contoh: tingkat merokok,
+sikap (baik-sedang-buruk)
+
+Pengkodean numerik dari data nominal atau pesanan tidak membuat data
+numerik!
+
+\hypertarget{meringkasmenyajikan-data}{%
+\paragraph{\texorpdfstring{\textbf{2.4 Meringkas/menyajikan
+data}}{2.4 Meringkas/menyajikan data}}\label{meringkasmenyajikan-data}}
+
+Data kontinu/diskrit Statistik lokasi ringkasan: rata-rata, median.
+Rata-rata sampel adalah rata-rata aritmatika data. Ini dapat dihitung,
+dengan menjumlahkan semua nilai data dan membagi jumlah dengan ukuran
+sampel total.
+
+\end{document}

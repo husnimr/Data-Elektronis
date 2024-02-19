@@ -1,0 +1,89 @@
+---
+title: "UTS"
+author: "Husni Mubarok Ramadhan"
+date: "2023-03-15"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+
+Nama : Husni Mubarok Ramadhan
+
+NIM : J0303211153
+
+Kelas : AP1
+
+## Deskripsi Grafis
+
+### Dataset airquality
+
+Untuk memuat dataset airquality, kita akan membuat grafik tingkat ozon berdasarkan waktu dengan menggunakan plot garis merah, serta membuat grafik korelasi antara ozon dan suhu dengan menggunakan paket ggplot2. Dalam grafik kedua, titik-titik merepresentasikan observasi dari variabel ozon dan suhu, sedangkan garis biru merupakan hasil regresi linear dari korelasi antara kedua variabel tersebut.
+
+```{r, comment=NA}
+# Load dataset airquality
+data(airquality)
+
+# Deskripsi dataset airquality
+summary(airquality)
+
+# Membuat grafik tingkat ozon berdasarkan waktu
+plot(airquality$Ozone, type = "l", col = "red", xlab = "Waktu (hari)", 
+     ylab = "Tingkat Ozon (ppb)", main = "Tingkat Ozon pada Waktu Tertentu")
+
+# load paket ggplot2
+library(ggplot2)
+
+# Membuat grafik korelasi antara ozon dan suhu
+ggplot(data = airquality, aes(x = Ozone, y = Temp)) + 
+  geom_point(alpha = 0.5, size = 3) +
+  geom_smooth(method = lm, se = FALSE, color = "blue", size = 1.5) +
+  labs(title = "Korelasi Antara Ozon dan Suhu",
+       x = "Tingkat Ozon (ppb)", y = "Suhu (Fahrenheit)")
+```
+
+## Deskripsi Lokasi
+
+### Dataset airquality
+
+Untuk membuat deskripsi lokasi dari dataset airquality, kita dapat menggunakan beberapa fungsi dasar R seperti mean(), median(), dan quantile(). Berikut adalah gambaran data untuk deskripsi lokasi dari variabel Ozone dan Wind pada dataset airquality.
+
+```{r, comment=NA}
+
+# Load dataset airquality
+data(airquality)
+
+# Deskripsi lokasi variabel Ozone
+cat("Deskripsi lokasi variabel Ozone:\n")
+cat("Rata-rata: ", mean(airquality$Ozone), "\n")
+cat("Median: ", median(airquality$Ozone), "\n")
+cat("Kuartil 1: ", quantile(airquality$Ozone, 0.25, na.rm = TRUE), "\n")
+cat("Kuartil 3: ", quantile(airquality$Ozone, 0.75, na.rm = TRUE), "\n")
+
+# Deskripsi lokasi variabel Wind
+cat("\nDeskripsi lokasi variabel Wind:\n")
+cat("Rata-rata: ", mean(airquality$Wind), "\n")
+cat("Median: ", median(airquality$Wind), "\n")
+cat("Kuartil 1: ", quantile(airquality$Wind, 0.25), "\n")
+cat("Kuartil 3: ", quantile(airquality$Wind, 0.75), "\n")
+```
+
+## Deskripsi Keragaman
+
+### Dataset airquality
+
+Untuk membuat deskripsi keragaman dari dataset airquality, kita dapat menggunakan beberapa fungsi dasar R seperti range(), var(), dan sd(). Berikut adalah gambaran data deskripsi keragaman dari variabel Ozone dan Wind pada dataset airquality.
+
+```{r, comment=NA}
+# Deskripsi keragaman variabel Ozone
+cat("Deskripsi keragaman variabel Ozone:\n")
+cat("Rentang: ", range(airquality$Ozone), "\n")
+cat("Variansi: ", var(airquality$Ozone), "\n")
+cat("Standar deviasi: ", sd(airquality$Ozone), "\n")
+
+# Deskripsi keragaman variabel Wind
+cat("\nDeskripsi keragaman variabel Wind:\n")
+cat("Rentang: ", range(airquality$Wind), "\n")
+cat("Variansi: ", var(airquality$Wind), "\n")
+cat("Standar deviasi: ", sd(airquality$Wind), "\n")
+```

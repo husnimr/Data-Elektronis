@@ -1,0 +1,10 @@
+install.packages("Orange")
+library(Orange)
+data(iris)
+
+install.packages("ChickWeight")
+library(ChickWeight)
+summary(ChickWeight)
+
+install.packages("ggplot2")
+library(ggplot2)
